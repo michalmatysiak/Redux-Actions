@@ -55,7 +55,7 @@ function editComment(text,id) {
 
 function removeComment(id) {
 	return {
-		type: ADD_COMMENT,
+		type: REMOVE_COMMENT,
 		id
 	}
 }
