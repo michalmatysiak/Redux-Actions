@@ -6,74 +6,44 @@ const REMOVE_COMMENT = 'REMOVE_COMMENT';
 const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
-{
-	type: ADD_COMMENT,
-	id: 3,
-	text: 'My first comment !!'
-}
-
-{
-	type: EDIT_COMMENT,
-	id: 20,
-	text: 'My next comment'
-}
-
-{
-	type: REMOVE_COMMENT,
-	id: 22 
-}
-
-{
-	type: THUMB_UP_COMMENT,
-	id: 12,
-	thumbs: 134
-}
-
-{
-	type: THUMB_DOWN_COMMENT,
-	id: 14,
-	thumbs: 121
-}
 
 
-
-function addComment(text) {
+const addComment = text => {
 	return {
 		type: ADD_COMMENT,
-		text,
-		id: uuid.v4()
+		text
+		id: uuid.v4(),
 	}
-}
+};
 
-function editComment(text,id) {
+const editComment = (id, text) => {
 	return {
 		type: EDIT_COMMENT,
-		text,
-		id
+		id,
+		text
 	}
-}
+};
 
-function removeComment(id) {
+const removeComment = id => {
 	return {
 		type: REMOVE_COMMENT,
 		id
 	}
-}
-function thumbUpComment(thumbs, id) {
+};
+
+const thumbUpComment = (id) => {
 	return {
 		type: THUMB_UP_COMMENT,
-		thumbs: thumbs +1,
 		id
 	}
-	
-}
-function thumbDownComment(thumbs, id) {
+};
+
+const thumbDownComment = (id) => {
 	return {
 		type: THUMB_DOWN_COMMENT,
-		thumbs: thumbs -1,
 		id
 	}
-}
+};
 
 const boundAddComment = text => dispatch(addComment(text));
 const boundEditComment = text => dispatch(editComment(text, id));
